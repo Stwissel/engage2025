@@ -1,0 +1,88 @@
+{
+    "nodes": [
+        {
+            "parameters": {
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.chatTrigger",
+            "typeVersion": 1.1,
+            "position": [
+                -680,
+                -200
+            ],
+            "id": "36fe0612-171e-4053-9a14-8641d34154dd",
+            "name": "When chat message received",
+            "webhookId": "4c0e78c3-5e9a-4a99-b2dd-0a113e137785",
+            "notesInFlow": false,
+            "notes": "Goes in"
+        },
+        {
+            "parameters": {
+                "options": {
+                    "systemMessage": "Please translate from English to German"
+                }
+            },
+            "type": "@n8n/n8n-nodes-langchain.agent",
+            "typeVersion": 1.9,
+            "position": [
+                -460,
+                -200
+            ],
+            "id": "3897e5c2-9c66-4a54-bd0d-b0724c903e32",
+            "name": "AI Agent"
+        },
+        {
+            "parameters": {
+                "model": {
+                    "__rl": true,
+                    "mode": "list",
+                    "value": "gpt-4o-mini"
+                },
+                "options": {}
+            },
+            "type": "@n8n/n8n-nodes-langchain.lmChatOpenAi",
+            "typeVersion": 1.2,
+            "position": [
+                -480,
+                -20
+            ],
+            "id": "c7eb779a-09fe-4325-b22e-18739649600a",
+            "name": "OpenAI Chat Model",
+            "credentials": {
+                "openAiApi": {
+                    "id": "vMliuwHin2NGsDxI",
+                    "name": "OpenAi account"
+                }
+            }
+        }
+    ],
+    "connections": {
+        "When chat message received": {
+            "main": [
+                [
+                    {
+                        "node": "AI Agent",
+                        "type": "main",
+                        "index": 0
+                    }
+                ]
+            ]
+        },
+        "OpenAI Chat Model": {
+            "ai_languageModel": [
+                [
+                    {
+                        "node": "AI Agent",
+                        "type": "ai_languageModel",
+                        "index": 0
+                    }
+                ]
+            ]
+        }
+    },
+    "pinData": {},
+    "meta": {
+        "templateCredsSetupCompleted": true,
+        "instanceId": "c9dc0f7f0e5de04ba5f1324171c7cc34fb93e6169f8034b264737fa4d813fed5"
+    }
+}

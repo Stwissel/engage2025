@@ -1,0 +1,21 @@
+{
+  "name": "simple-chat",
+  "version": "1.0.0",
+  "description": "Babysteps with LangChain",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --env-file=.env index.js",
+    "test": "vitest"
+  },
+  "author": "stw@linux.com",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@langchain/core": "^0.3.45",
+    "@langchain/openai": "^0.5.6",
+    "langchain": "^0.3.23"
+  },
+  "devDependencies": {
+    "vitest": "^3.1.2"
+  }
+}
